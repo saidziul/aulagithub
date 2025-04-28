@@ -2,11 +2,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=h, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pagina Home</h1>
-    <a href="Vendas.html">Ir para pagina de vendas</a>
+    <div class="dashboard">
+        <h1>Financeiro</h1>
+        <div class="form">
+            <label for="value">Valor:</label>
+            <input type="number" id="value" placeholder="Digite o valor">
+            
+            <label for="date">Data:</label>
+            <input type="date" id="date">
+            
+            <label for="source">Origem:</label>
+            <input type="text" id="source" placeholder="Digite a origem">
+            
+            <label for="transactionType">Tipo:</label>
+            <select id="transactionType">
+                <option value="Recebido">Entrada</option>
+                <option value="Retirado">Saída</option>
+            </select>
+            
+            <button id="registerButton">Cadastrar</button>
+        </div>
+    </div>
+    <div class="account-summary">
+        <h2>SALDO ATUAL: <span id="accountBalance">0</span></h2>
+        <h2>PREVISÃO DE SALDO: <span id="predictedBalance">0</span></h2>
+    </div>
+    <div class="pending-transactions">
+        <h2>Lista de Pendências</h2>
+        <ul id="pendingList"></ul>
+    </div>
+    <div class="confirmed-transactions">
+        <button id="reportButton">Relatório</button>
+        <button id="closeMonthButton">Encerrar Mês</button>
+        <div id="reportContainer" class="hidden">
+            <h2>Relatório de Transações Confirmadas</h2>
+            <div class="table-container">
+                <h3>Entradas</h3>
+                <table id="incomeTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Origem</th>
+                            <th>Valor</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Entradas confirmadas serão adicionadas aqui -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-container">
+                <h3>Saídas</h3>
+                <table id="expenseTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Origem</th>
+                            <th>Valor</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Saídas confirmadas serão adicionadas aqui -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-container">
+                <h3>Transações Deletadas Antes de Confirmação</h3>
+                <table id="deletedPendingTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Origem</th>
+                            <th>Valor</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Transações deletadas antes de confirmação serão adicionadas aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="closed-months">
+        <h2>Relatórios de Meses Encerrados</h2>
+        <ul id="closedMonthsList"></ul>
+    </div>
+    <div id="editMonthContainer" class="hidden">
+        <h2>Editar Mês Encerrado</h2>
+        <div class="table-container">
+            <h3>Entradas</h3>
+            <table id="editIncomeTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Origem</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Entradas editáveis serão adicionadas aqui -->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container">
+            <h3>Saídas</h3>
+            <table id="editExpenseTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Origem</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Saídas editáveis serão adicionadas aqui -->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container">
+            <h3>Deletados</h3>
+            <table id="editDeletedTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Origem</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Deletados editáveis serão adicionados aqui -->
+                </tbody>
+            </table>
+        </div>
+        <button id="saveEditedMonthButton">Salvar Alterações</button>
+    </div>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

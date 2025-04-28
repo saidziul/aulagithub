@@ -1,0 +1,466 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f7; /* Fundo neutro inspirado no macOS */
+    flex-direction: row;
+}
+
+.dashboard {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px; /* Bordas suaves */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 320px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 10px 0;
+    font-weight: 600;
+    color: #1d1d1f; /* Cor escura suave */
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    color: #6e6e73; /* Texto secundário */
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d1d1d6; /* Bordas suaves */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #1d1d1f;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007aff; /* Azul padrão da Apple */
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #007aff; /* Azul padrão da Apple */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #005ecb; /* Azul mais escuro ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.account {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.account h2 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.transactions {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-left: 20px;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.transactions h2 {
+    margin-bottom: 10px;
+}
+
+.transactions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.transactions li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transactions button {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.transactions button:hover {
+    opacity: 0.9;
+}
+
+.transactions h3 {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #333;
+}
+
+.pending-transactions {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 450px; /* Ajustado para um tamanho mais compacto */
+    margin-left: 20px;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.pending-transactions h2 {
+    font-size: 20px; /* Aumentado para destacar */
+    font-weight: bold;
+    color: #007aff; /* Azul padrão da Apple */
+    text-align: center;
+    margin-bottom: 15px; /* Maior espaçamento abaixo do título */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+.pending-transactions ul {
+    list-style: disc; /* Estilo de lista com marcadores */
+    padding-left: 20px; /* Recuo para alinhar os marcadores */
+}
+
+.pending-transactions li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #d1d1d6;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 12px; /* Diminuído de 14px para 12px */
+    color: #1d1d1f;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto; /* Ajusta as colunas */
+    align-items: center;
+    gap: 5px; /* Reduz o espaçamento entre os elementos */
+}
+
+.pending-transactions li span {
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências caso o texto seja muito longo */
+    white-space: nowrap;
+}
+
+.pending-transactions button {
+    background-color: #007aff; /* Azul padrão da Apple */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 6px; /* Botões menores */
+    cursor: pointer;
+    font-size: 10px; /* Texto menor */
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.pending-transactions button.delete {
+    background-color: #ff3b30; /* Vermelho padrão da Apple */
+}
+
+.pending-transactions button.delete:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro ao passar o mouse */
+}
+
+.pending-transactions button:hover {
+    background-color: #005ecb; /* Azul mais escuro ao passar o mouse */
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d1d1d6; /* Bordas suaves */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #1d1d1f;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.account-summary {
+    background: #ffffff;
+    border: 1px solid #d1d1d6;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-summary h2 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #1d1d1f;
+}
+
+.confirmed-transactions {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    margin-left: 20px;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.confirmed-transactions h2 {
+    font-size: 18px;
+    color: #1d1d1f;
+    margin-bottom: 10px;
+}
+
+.confirmed-transactions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.confirmed-transactions li {
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #d1d1d6;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 14px;
+    color: #1d1d1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.confirmed-transactions button {
+    background-color: #ff3b30; /* Vermelho padrão da Apple */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.confirmed-transactions button:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro ao passar o mouse */
+}
+
+.table-container {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table th, table td {
+    border: 1px solid #d1d1d6;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #1d1d1f;
+}
+
+table th {
+    background-color: #f4f4f9;
+    font-weight: 600;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Centralizar o botão "Relatório" na parte superior */
+#reportButton {
+    background-color: #007aff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px; /* Posicionado na parte superior */
+    left: 50%; /* Centralizado horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centralizar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#reportButton:hover {
+    background-color: #005ecb;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#reportContainer {
+    display: none;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin-top: 20px;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+#reportContainer.visible {
+    display: block;
+}
+
+#reportContainer h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #1d1d1f;
+}
+
+#closeMonthButton {
+    background-color: #34c759; /* Verde padrão da Apple */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+#closeMonthButton:hover {
+    background-color: #28a745; /* Verde mais escuro ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.closed-months {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    margin-top: 20px;
+    height: auto;
+    overflow-y: auto;
+}
+
+.closed-months h2 {
+    font-size: 18px;
+    color: #1d1d1f;
+    margin-bottom: 10px;
+}
+
+.closed-months ul {
+    list-style: none;
+    padding: 0;
+}
+
+.closed-months li {
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #d1d1d6;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 14px;
+    color: #1d1d1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.closed-months li:hover {
+    background-color: #e5e5ea;
+}
+
+/* Editor de meses encerrados */
+#editMonthContainer {
+    display: none;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin-top: 20px;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+#editMonthContainer.visible {
+    display: block;
+}
+
+#editMonthContainer h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #1d1d1f;
+}
+
+#saveEditedMonthButton {
+    background-color: #34c759; /* Verde padrão da Apple */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+#saveEditedMonthButton:hover {
+    background-color: #28a745; /* Verde mais escuro ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
